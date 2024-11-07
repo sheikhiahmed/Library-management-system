@@ -1,4 +1,4 @@
-package com.library.Library.models;
+package com.library.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,20 +14,26 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Student {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    @Column(unique = true,nullable = false)
-    private String emil;
-    private Integer age;
+    @Enumerated(value = EnumType.STRING)
+    private Genre genre;
     @CreationTimestamp
-    private Date createOn;
+    private Date createDate;
     @UpdateTimestamp
     private Date updatedOn;
-    @OneToMany(mappedBy = "studentB")
-    private List<Book> books;
-    @OneToMany(mappedBy = "studentT")
+
+    @ManyToOne
+    @JoinColumn
+    private Author my_author;
+
+    @ManyToOne
+    @JoinColumn
+    private Student studentB;
+    @OneToMany(mappedBy = "bookT")
     private List<Transaction> transactionList;
+
 }
