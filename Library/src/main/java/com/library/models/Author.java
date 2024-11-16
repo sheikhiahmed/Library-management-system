@@ -1,5 +1,6 @@
 package com.library.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -23,6 +24,7 @@ public class Author {
     @CreationTimestamp
     private Date createDate;
     @OneToMany(mappedBy = "my_author")
+    @JsonIgnoreProperties({"my_author"})
     private List<Book> bookList;
 
 

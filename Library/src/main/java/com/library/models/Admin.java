@@ -1,5 +1,6 @@
 package com.library.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -24,5 +25,6 @@ public class Admin {
     private Date createdOn;
 
     @OneToMany(mappedBy ="admin")
+    @JsonIgnoreProperties({"admin"})
     private List<Transaction> transaction;
 }
