@@ -3,6 +3,7 @@ package com.library.controllers;
 import com.library.dtos.CreateStudentRequest;
 import com.library.models.Student;
 import com.library.services.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ public class StudentController {
     @Autowired
     StudentService studentService;
     @PostMapping("/student")
-    public void createStudent(@RequestBody CreateStudentRequest studentRequest){
+    public void createStudent(@RequestBody @Valid CreateStudentRequest studentRequest){
         studentService.create(studentRequest.to());
 
     }
