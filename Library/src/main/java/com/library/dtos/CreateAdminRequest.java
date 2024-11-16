@@ -1,7 +1,6 @@
 package com.library.dtos;
 
-import com.library.models.Student;
-import jakarta.persistence.Column;
+import com.library.models.Admin;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -10,18 +9,19 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CreateStudentRequest {
+public class CreateAdminRequest {
+
     @NotBlank
     private String name;
+
     @NotBlank
     private String email;
-    private Integer age;
-    //Function to create a student object.
-    public Student to(){
-        return Student.builder()
+
+    public Admin to() {
+
+        return Admin.builder()
                 .name(this.name)
-                .emil(this.email)
-                .age(this.age)
+                .email(this.email)
                 .build();
     }
 }

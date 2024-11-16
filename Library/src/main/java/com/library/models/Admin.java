@@ -20,7 +20,7 @@ public class Admin {
     private Integer id;
     private String name;
     @Column(nullable = false,unique = true)
-    private String emil;
+    private String email;
     @CreationTimestamp
     private Date createdOn;
 
