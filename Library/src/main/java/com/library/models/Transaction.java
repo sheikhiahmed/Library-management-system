@@ -20,14 +20,14 @@ public class Transaction {
     private Integer id;
     private String txnId;
     @Enumerated(value = EnumType.STRING)
-    private TransctionType transctionType;
+    private TransactionType transactionType;
     @Enumerated(value = EnumType.STRING)
     private TranscationStatus transcationStatus;
     @CreationTimestamp
     private Date createOn;
     @UpdateTimestamp
     private Date updateOn;
-    private Double fine;
+    private Integer fine;
     @JoinColumn
     @ManyToOne
     @JsonIgnoreProperties({"transactionList"})

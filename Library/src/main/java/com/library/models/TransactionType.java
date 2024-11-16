@@ -1,6 +1,6 @@
 package com.library.models;
 
-public enum TransctionType {
+public enum TransactionType {
     ISSUE,
     RETURN
 }
