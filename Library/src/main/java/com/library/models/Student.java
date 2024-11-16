@@ -3,6 +3,7 @@ package com.library.models;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
@@ -26,8 +27,8 @@ public class Student {
     private Date createOn;
     @UpdateTimestamp
     private Date updatedOn;
-    @OneToMany(mappedBy = "studentB")
-    private List<Book> books;
+    @OneToMany(mappedBy = "studentB", fetch = FetchType.EAGER)
+    private List<Book> bookList;
     @OneToMany(mappedBy = "studentT")
     private List<Transaction> transactionList;
 }
